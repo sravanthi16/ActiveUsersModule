@@ -77,7 +77,7 @@ configuration settings like resource allocation or by increasing the parallelism
 # Solution:
 
 I would suggest using pyspark as the ETL tool to work on these type of scenarios. As It works as a replacement to traditional ETL tools.
-If you are concern about building a cluster, allocating resources and maintaining the cluster. I would suggest to go with a cloud service.
+If you face issues with building a cluster, allocating resources and maintaining the cluster. I would suggest to go with a cloud service. Cloud service is cost effective, easy to use, requires less maintanance. 
 
 
 Notes:
