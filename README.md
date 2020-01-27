@@ -76,7 +76,7 @@ configuration settings like resource allocation or by increasing the parallelism
 
 # Solution:
 
-I would suggest using pyspark as the ETL tool to work on these type of scenarios.As It works as a replacement to traditional ETL tools.
+I would suggest using pyspark as the ETL tool to work on these type of scenarios. As It works as a replacement to traditional ETL tools.
 If you are concern about building a cluster, allocating resources and maintaining the cluster. I would suggest to go with a cloud service.
 
 
@@ -85,11 +85,11 @@ Notes:
 1.event_date is UTC. Our users are based in the US.
 
 event_date is UTC which is a date format(yyyyMMdd).I am not clear on which UTC region I have to consider. As I used  the date for 
-group by condition,I assume there won't be any issue for time being.
+group by condition,I assume there won't be any issue for time zone.
 
 2. We say a user is active if the engagement time is at least 3 seconds and any valuable
 events occurred at least once.
 
 I have filtered the user_engagement events out of all the events and fetched all the user ids having engagement_time_msec >=3000, I did
-not understand much about any valuable events occured atleast once condition.As per my understanding all the events from json file
-occured atleast once.I am clear about this bit of requirement.
+not understand much about any valuable events occured atleast once condition. As per my understanding all the events from json file
+occured atleast once. I need more informartion on this bit of requirement. 
