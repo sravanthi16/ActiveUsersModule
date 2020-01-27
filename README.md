@@ -27,10 +27,10 @@ I have created a pyspark script to extract data from json file, apply the transf
 
 As I have access to limited resources,I used the below technologies or resources to complete the task.
 
-Cloudera quickstart VM-5.13.0
-Python-2.6.6
-spark -1.6
-MySQL 
+# Cloudera quickstart VM-5.13.0
+# Python-2.6.6
+# spark -1.6
+# MySQL 
 
 
 create a table in MySql named active_user_table.
@@ -39,32 +39,32 @@ create table active_user_table(date DATE NOT NULL,active_user_count INTEGER NOT 
 
 change the environment parameters in the activeusers.properties file.
 
-# Spark job will be running in the below execution mode local or yarn-client(code supports only these two modes)
-execution.mode = local 
-# inpurt json file name moved to hdfs location by using (hadoop fs -copyFromLocal ./bq-results-sample-data.json /user/inputfiles/bq-results-sample-data.json)
-file.name = /user/inputfiles/bq-results-sample-data.json
-# jdbc url to connect to mysql (jdbc:mysql://hostname:port/dbname?user=username&password=password
-jdbc.url = jdbc:mysql://localhost:3306/events?user=root&password=******
-# table name
-table.name = active_user_table
-# spark write mode append or overwrite
-write.mode = append
+#Spark job will be running in the below execution mode local or yarn-client(code supports only these two modes)
+# execution.mode = local 
+#inpurt json file name moved to hdfs location by using (hadoop fs -copyFromLocal ./bq-results-sample-data.json /user/inputfiles/bq-results-sample-data.json)
+# file.name = /user/inputfiles/bq-results-sample-data.json
+#jdbc url to connect to mysql (jdbc:mysql://hostname:port/dbname?user=username&password=password
+# jdbc.url = jdbc:mysql://localhost:3306/events?user=root&password=******
+#table name
+# table.name = active_user_table
+#spark write mode append or overwrite
+# write.mode = append
 
 move both python script .py file and .properties file into one location.
 
 and run the below command:
 
-spark-submit activeusers.py <env>
+# spark-submit activeusers.py <env>
   
 Ex:spark-submit activeusers.py dev 
 
 I have initiated the logger but didn't get time to complete it properly.
 
-2. How would you design the ETL process for it to automatically update daily?
-How would you scale this process if we got tens or hundreds of millions of events per
-day?
+# 2. How would you design the ETL process for it to automatically update daily?
+# How would you scale this process if we got tens or hundreds of millions of events per
+# day?
 
-Solution:
+# Solution:
 
 The script I have given can be run as a scheduled script with minor changes. I have to add the proper logging and I have to create
 different modules for each extract, transform and loading steps to get more clear idea of what we are doing in the script.
@@ -72,9 +72,9 @@ different modules for each extract, transform and loading steps to get more clea
 Even though this script will take much time for less number of records It will give the best results on huge data if you add some of the 
 configuration settings like resource allocation or by increasing the parallelism.
 
-3. Suggest any target architecture to cater for this growth.
+# 3. Suggest any target architecture to cater for this growth.
 
-Solution:
+# Solution:
 
 I would suggest using pyspark as the ETL tool to work on these type of scenarios.As It works as a replacement to traditional ETL tools.
 If you are concern about building a cluster, allocating resources and maintaining the cluster. I would suggest to go with a cloud service.
